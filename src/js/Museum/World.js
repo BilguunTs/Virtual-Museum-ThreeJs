@@ -10,7 +10,7 @@ import Renderer from "./Renderer.js";
 
 import Environment from "./Building/Environment.js";
 import Building from "./Building/Building.js";
-
+import PostProcessing from "./PostProcessing";
 class World {
   static instance;
   constructor(canvas) {
@@ -20,10 +20,12 @@ class World {
     World.instance = this;
     this.canvas = canvas;
     this.scene = new THREE.Scene();
+    this.scene.fog = new THREE.FogExp2(0xefd1b5, 0.0025);
     this.time = new Time();
     this.sizes = new Sizes();
     this.camera = new Camera();
     this.renderer = new Renderer();
+    this.postPorcessing = new PostProcessing();
     this.resourses = new Resourses(assets);
 
     this.building = new Building();
@@ -37,7 +39,9 @@ class World {
   }
   update() {
     this.camera.update();
+    this.building.update();
     this.renderer.update();
+    this.postPorcessing.update();
   }
   resize() {
     this.camera.resize();
