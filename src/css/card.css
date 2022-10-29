@@ -1,0 +1,28 @@
+.card {
+  max-width: 40%;
+  max-height: 50%;
+  margin: 1em;
+
+  padding: 1em;
+  border-radius: 1em;
+  color: #fff;
+  text-shadow: (255 255 255 / 50%) 0px 0px 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+.card-header {
+}
+
+.card-body {
+  margin: 10px;
+  overflow: auto;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.cart-footer {
+}

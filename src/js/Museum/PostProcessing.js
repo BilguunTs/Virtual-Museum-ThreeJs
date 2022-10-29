@@ -1,11 +1,12 @@
 import World from "./World";
 import * as THREE from "three";
 import {
-  BloomEffect,
   EffectComposer,
   EffectPass,
   RenderPass,
   DepthOfFieldEffect,
+  GlitchEffect,
+  FXAAEffect,
 } from "postprocessing";
 export default class PostProcessing {
   constructor() {
@@ -22,17 +23,11 @@ export default class PostProcessing {
     this.composer.addPass(
       new RenderPass(this.scene, this.camera.perspectiveCamera)
     );
-    const dofEffect = new DepthOfFieldEffect();
 
-    this.composer.addPass(
-      new EffectPass(this.camera, new DepthOfFieldEffect())
-    );
-    // this.composer = new EffectComposer(this.renderer.renderer);
-    // this.composer.addPass(
-    //   new RenderPass(this.scene, this.camera.orthographicCamera)
-    // );
-    // const effectPass = new EffectPass();
-    // effectPass.renderToScreen = true;
+    this.composer.addPass(new EffectPass(this.camera, new FXAAEffect()));
+
+    const effectPass = new EffectPass();
+    effectPass.renderToScreen = true;
   }
   update() {
     this.composer.render(this.time.delta);

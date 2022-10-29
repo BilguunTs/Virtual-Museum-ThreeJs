@@ -12,7 +12,6 @@ export default class ArtMuseum {
     this.setModel();
   }
   setModel() {
-    console.log(this.artMuseum);
     this.artMuseum.children.forEach((child) => {
       child.castShadow = true;
       child.recieveShadow = true;

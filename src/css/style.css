@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -8,11 +7,120 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  font-family: Garamond, serif;
+}
+body {
+  margin: 0;
+
+  overflow: hidden;
+}
+.museum-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.page {
+  z-index: 999;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* position: absolute; */
+}
+.page-wrapper {
+  position: relative;
+}
+.hero {
+  width: 100vw;
+  height: 100vh;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+section {
+  max-width: 90%;
+  margin: 0 auto;
+}
 
+section h1 {
+  font-size: 46px;
+  text-align: center;
+}
 
-a {
+section p {
+  font-size: 26px;
+  /* text-align: center; */
+}
+
+.content-section {
+  display: flex;
+
+  /* overflow: hidden; */
+}
+.content-action {
+  display: flex;
+  flex: 1;
+
+  flex-direction: column;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: flex-start;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+  /* flex-shrink: 1; */
+}
+
+.content-detail {
+  padding: auto;
+  height: 100vh;
+
+  flex: 9;
+  align-items: center;
+  display: flex;
+}
+
+.btn-cancel {
+}
+.btn-next {
+}
+
+.btn-pre {
+}
+
+.nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -60vw;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s;
+}
+
+.checkbox:checked + .button .icon {
+  background-color: transparent;
+}
+
+.checkbox:checked + .button .icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.checkbox:checked + .button .icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -29,28 +137,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -63,4 +150,24 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 2555, 0.2);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 2555, 0.5);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

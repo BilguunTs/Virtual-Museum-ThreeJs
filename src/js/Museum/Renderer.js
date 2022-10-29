@@ -13,13 +13,13 @@ export default class Renderer {
   setRenderer() {
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
-      // antialias: true,
-      powerPreference: "high-performance",
-      antialias: false,
-      stencil: false,
-      depth: false,
+      antialias: true,
+      //powerPreference: "high-performance",
+      //antialias: false,
+      //stencil: false,
+      //depth: false,
     });
-    this.renderer.setClearColor("#e0c0ac", 1);
+    //this.renderer.setClearColor("#e0c0ac", 1);
     this.renderer.physicallyCorrectLights = true;
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.toneMapping = THREE.CineonToneMapping;

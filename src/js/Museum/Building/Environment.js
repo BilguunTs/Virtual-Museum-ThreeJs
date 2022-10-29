@@ -1,23 +1,36 @@
 import * as THREE from "three";
 import World from "../World";
+import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper";
+import { ObjectNames } from "../helper";
+
 export default class Environment {
   constructor() {
     this.world = new World();
     this.scene = this.world.scene;
     this.resourses = this.world.resourses;
 
-    this.setSunlight();
+    this.setLight();
+    this.setFog();
   }
-  setSunlight() {
-    this.sunLight = new THREE.DirectionalLight("#e0c0ac", 3);
-    this.sunLight.castShadow = true;
-    this.sunLight.shadow.camera.far = 20;
-    this.sunLight.shadow.mapSize.set(1024, 1024);
-    this.sunLight.shadow.normalBias = 0.05;
-    this.sunLight.position.set(1.5, 60, 3);
-    this.scene.add(this.sunLight);
-    const ambientLight = new THREE.AmbientLight("#e0c0ac", 0.5);
-    ambientLight.position.set(50, 100, 10);
-    this.scene.add(ambientLight);
+  setLight() {
+    this.sealLight = new THREE.RectAreaLight("#e0c0ac", 0.4, 30, 30);
+
+    // for (const statue of ObjectNames.locations) {
+    //   let instance = new THREE.PointLight("#ffffff", 0.5);
+    //   instance.position.set(statue.position.x, 0.1, statue.position.z);
+    //   this.scene.add(instance);
+    // }
+    this.sealLight.position.set(0, 10, 0);
+    this.sealLight.rotateX(-(Math.PI / 2));
+    this.scene.add(this.sealLight);
+    this.ambientLight = new THREE.AmbientLight("#e0c0ac", 0.2);
+    this.ambientLight.position.set(0, 10, 0);
+    this.scene.add(this.ambientLight);
+    //const rectLightHelper = new RectAreaLightHelper(this.sealLight);
+    // this.sealLight.add(rectLightHelper);
+  }
+  setFog() {
+    this.scene.fog = new THREE.FogExp2("#e0c0ac", 0.02);
+    this.scene.background = new THREE.Color("#e0c0ac");
   }
 }

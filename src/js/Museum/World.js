@@ -24,9 +24,9 @@ class World {
     this.time = new Time();
     this.sizes = new Sizes();
     this.camera = new Camera();
+    this.resourses = new Resourses(assets);
     this.renderer = new Renderer();
     this.postPorcessing = new PostProcessing();
-    this.resourses = new Resourses(assets);
 
     this.building = new Building();
 

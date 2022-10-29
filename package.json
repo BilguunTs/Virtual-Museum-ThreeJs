@@ -16,6 +16,7 @@
     "events": "^3.3.0",
     "gsap": "^3.11.3",
     "postprocessing": "^6.29.0",
-    "three": "^0.145.0"
+    "three": "^0.145.0",
+    "three-tween": "^1.0.0"
   }
 }

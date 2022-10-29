@@ -3,11 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Виртуал музей</title>
+
+    <link rel="stylesheet" href="./css/transition.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/card.css" />
+    <link rel="stylesheet" href="./css/button.css" />
   </head>
   <body>
-    <canvas id="main-canvas"></canvas>
+    <div class="museum-wrapper">
+      <canvas id="main-canvas"></canvas>
+    </div>
+    <div class="page">
+      <div class="page-wrapper">
+        <section>
+          <div class="content-section" style="display: none" id="cs"></div>
+        </section>
+
+        <input
+          type="checkbox"
+          id="navi-toggle"
+          hidden="true"
+          class="checkbox"
+        />
+        <label for="navi-toggle" class="button">
+          <span class="icon">&nbsp;</span>
+        </label>
+      </div>
+    </div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

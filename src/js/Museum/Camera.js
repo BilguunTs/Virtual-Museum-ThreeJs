@@ -10,34 +10,35 @@ export default class Camera {
 
     this.createOrthographicCamera();
     this.createPerspectiveCamera();
-    this.setOrbitControls();
+    //this.setOrbitControls();
   }
   createPerspectiveCamera() {
     this.perspectiveCamera = new THREE.PerspectiveCamera(
-      35,
+      60,
       this.sizes.aspect,
       0.1,
       1000
     );
-    this.perspectiveCamera.position.set(6, 15, 15);
+    this.perspectiveCamera.position.set(0, 5, 25);
+    this.perspectiveCamera.lookAt(0, 7, 0);
     this.scene.add(this.perspectiveCamera);
   }
   createOrthographicCamera() {
     this.orthographicCamera = new THREE.OrthographicCamera(
-      (-this.sizes.aspect * this.sizes.frustrum) / 2,
-      (this.sizes.aspect * this.sizes.frustrum) / 2,
-      this.sizes.frustrum / 2,
-      -this.sizes.frustrum / 2,
-      -70,
-      70
+      (-this.sizes.aspect * this.sizes.frustrum) / 1.3,
+      (this.sizes.aspect * this.sizes.frustrum) / 1.3,
+      this.sizes.frustrum / 1.3,
+      -this.sizes.frustrum / 1.3,
+      -30,
+      30
     );
 
-    this.orthographicCamera.position.set(-22, 42, 41);
+    this.orthographicCamera.position.set(-12, 12, 11);
     this.orthographicCamera.lookAt(0, 0, 0);
     this.scene.add(this.orthographicCamera);
 
-    this.helper = new THREE.CameraHelper(this.orthographicCamera);
-    this.scene.add(this.helper);
+    // this.helper = new THREE.CameraHelper(this.perspectiveCamera);
+    // this.scene.add(this.helper);
 
     this.setHelpers();
   }
@@ -65,11 +66,14 @@ export default class Camera {
     this.orthographicCamera.bottom = -this.frustrum / 2;
   }
   update() {
-    this.controls.update();
-
-    this.helper.matrixWorldNeedsUpdate = true;
-    this.helper.update();
-    this.helper.position.copy(this.orthographicCamera.position);
-    this.helper.rotation.copy(this.orthographicCamera.rotation);
+    this.perspectiveCamera.updateMatrix();
+    this.perspectiveCamera.updateMatrixWorld();
+    this.perspectiveCamera.updateProjectionMatrix();
+    this.perspectiveCamera.updateWorldMatrix();
+    // this.controls.update();
+    // this.helper.matrixWorldNeedsUpdate = true;
+    // this.helper.update();
+    // this.helper.position.copy(this.perspectiveCamera.position);
+    // this.helper.rotation.copy(this.perspectiveCamera.rotation);
   }
 }
