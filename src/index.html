@@ -15,9 +15,83 @@
       <canvas id="main-canvas"></canvas>
     </div>
     <div class="page">
+      <div id="hero-container" class="hero-container">
+        <div class="hero-content">
+          <div class="centered-col">
+            <div class="flex" style="align-items: center">
+              <div style="padding: 5em">
+                <h1 id="hero-title">Виртуал музей</h1>
+                <p id="hero-subtitle">
+                  Дэлхийн шилдэг урлагийн бүтээлийг зөвхөн манай музей гээс
+                  үзээрэй
+                </p>
+                <button id="start-btn">Эхлэх</button>
+              </div>
+              <div>
+                <img src="/img/heroimg.webp" style="max-height: 80vh" />
+              </div>
+            </div>
+          </div>
+          <div class="hero-about" style="background-color: #26222d">
+            <div class="flex" style="height: 100vh; align-item: center">
+              <div style="flex: 1">
+                <div class="img-container">
+                  <img class="r-img" src="/img/david.webp" />
+                </div>
+              </div>
+              <div class="white-text" style="flex: 1">
+                <h1>Илүү шинэлэг</h1>
+                <h3>
+                  3D артистуудын хийсэн урлагийн бүтээл болон шинэлэг технологи
+                </h3>
+              </div>
+            </div>
+            <div class="flex h100">
+              <div class="white-text" style="flex: 1">
+                <h1>Илүү бодит</h1>
+                <h3>VR технологи ашиглан 3D орчинг илүү бодитоор мэдрээрэй</h3>
+              </div>
+              <div style="flex: 1">
+                <div class="img-container">
+                  <img class="l-img" src="/img/venus.webp" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex" style="height: 100vh; align-item: center">
+            <div
+              style="
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                "
+              >
+                <div>
+                  <h3>
+                    "Дууссан урлагийн бүтээл гэж үгүй.<br />
+                    Зөвхөн хаягдсан урлагийн бүтээл л гэж бий"
+                  </h3>
+                  <p>Leanardo davinci</p>
+                </div>
+
+                <button class="start-btn" id="start-btn">ЗА</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tooltip" style="position: fixed"></div>
       <div class="page-wrapper">
         <section>
-          <div class="content-section" style="display: none" id="cs"></div>
+          <div class="content-section" id="cs"></div>
         </section>
 
         <input
@@ -26,6 +100,9 @@
           hidden="true"
           class="checkbox"
         />
+        <div class="logo">
+          <h1>LOGO</h1>
+        </div>
         <label for="navi-toggle" class="button">
           <span class="icon">&nbsp;</span>
         </label>

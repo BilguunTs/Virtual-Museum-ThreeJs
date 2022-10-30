@@ -9,8 +9,10 @@ export default class ArtMuseum {
 
     this.museum = this.world.resourses.items.museum;
     this.artMuseum = this.world.resourses.items.museum.scene;
+
     this.setModel();
   }
+
   setModel() {
     this.artMuseum.children.forEach((child) => {
       child.castShadow = true;

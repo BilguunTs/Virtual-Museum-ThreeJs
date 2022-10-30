@@ -30,7 +30,7 @@ export default class Environment {
     // this.sealLight.add(rectLightHelper);
   }
   setFog() {
-    this.scene.fog = new THREE.FogExp2("#e0c0ac", 0.02);
-    this.scene.background = new THREE.Color("#e0c0ac");
+    this.scene.fog = new THREE.FogExp2("#9e8d82", 0.01);
+    this.scene.background = new THREE.Color("#9e8d82");
   }
 }
