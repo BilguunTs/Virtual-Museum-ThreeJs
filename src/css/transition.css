@@ -33,3 +33,23 @@
     opacity: 1;
   }
 }
+.loading {
+  font-size: 84px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  color: wheat;
+  animation: loading02 1s infinite;
+}
+
+@keyframes loading02 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

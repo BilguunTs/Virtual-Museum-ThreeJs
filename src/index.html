@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./css/button.css" />
   </head>
   <body>
+    <div id="loader" class="loader-wrapper">
+      <div class="loading loading02">META MUSEUM</div>
+    </div>
     <div class="museum-wrapper">
       <canvas id="main-canvas"></canvas>
     </div>
@@ -25,7 +28,7 @@
                   Дэлхийн шилдэг урлагийн бүтээлийг зөвхөн манай музей гээс
                   үзээрэй
                 </p>
-                <button id="start-btn">Эхлэх</button>
+                <button class="start-btn" id="start-btn">Эхлэх</button>
               </div>
               <div>
                 <img src="/img/heroimg.webp" style="max-height: 80vh" />
@@ -40,7 +43,7 @@
                 </div>
               </div>
               <div class="white-text" style="flex: 1">
-                <h1>Илүү шинэлэг</h1>
+                <h1>Илүү шинэлэг 😎</h1>
                 <h3>
                   3D артистуудын хийсэн урлагийн бүтээл болон шинэлэг технологи
                 </h3>
@@ -48,7 +51,7 @@
             </div>
             <div class="flex h100">
               <div class="white-text" style="flex: 1">
-                <h1>Илүү бодит</h1>
+                <h1>Илүү бодит 😃</h1>
                 <h3>VR технологи ашиглан 3D орчинг илүү бодитоор мэдрээрэй</h3>
               </div>
               <div style="flex: 1">
@@ -58,7 +61,7 @@
               </div>
             </div>
           </div>
-          <div class="flex" style="height: 100vh; align-item: center">
+          <div class="flex" style="height: 100vh; align-items: center">
             <div
               style="
                 flex: 1;
@@ -82,13 +85,55 @@
                   <p>Leanardo davinci</p>
                 </div>
 
-                <button class="start-btn" id="start-btn">ЗА</button>
+                <button class="start-btn" id="start-btn">Эхлэх</button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div id="tooltip" style="position: fixed"></div>
+      <section>
+        <div class="nav-section">
+          <div style="position: relative; padding: 5em">
+            <p style="position: absolute; bottom: 0; right: 50%">2022 он</p>
+            <div>
+              <h2>Бидний тухай</h2>
+              <h3>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English. Many
+                desktop publishing packages and web page editors now use Lorem
+                Ipsum as their default model text, and a search for 'lorem
+                ipsum' will uncover many web sites still in their infancy.
+                Various versions have evolved over the years, sometimes by
+                accident, sometimes on purpose (injected humour and the like).
+              </h3>
+            </div>
+            <div>
+              <h2>Заавар</h2>
+              <h3>
+                Хулганаа үзэхийг хүссэн үзвэрдээрээ дарж тайлбарыг уншиж
+                танилцан үзнэ
+              </h3>
+            </div>
+            <div>
+              <h2>Үйлчилгээний нөхцөл</h2>
+              <h3>
+                Манай үйлчилгээ нь бизнес эрхлэгчдэд зориулагдсан болно. Манай
+                үйлчилгээг META MUSEUM-ийн захиалагчаар дамжуулан танд үзүүлэх
+                боломжтой бол тухайн захиалагч нь таны хувийн мэдээллийн
+                өгөгдлийн хянагч бөгөөд та өөрийн хувийн мэдээлэлтэй холбоотой
+                асуулт, хүсэлтээ тухайн захиалагчтай холбоо барина уу. META
+                MUSEUM нь энэхүү мэдэгдлээс ялгаатай байж болох манай
+                захиалагчдын нууцлал, аюулгүй байдлын арга барилд хариуцлага
+                хүлээхгүй.
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="page-wrapper">
         <section>
           <div class="content-section" id="cs"></div>
@@ -101,9 +146,9 @@
           class="checkbox"
         />
         <div class="logo">
-          <h1>LOGO</h1>
+          <h1>META</h1>
         </div>
-        <label for="navi-toggle" class="button">
+        <label for="navi-toggle" id="menu-btn" class="button">
           <span class="icon">&nbsp;</span>
         </label>
       </div>

@@ -8,7 +8,7 @@ import assets from "./utils/assets";
 import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
 
-import Environment from "./Building/Environment.js";
+import PreLoader from "./PreLoader.js";
 import Building from "./Building/Building.js";
 import PostProcessing from "./PostProcessing";
 class World {
@@ -18,6 +18,7 @@ class World {
       return World.instance;
     }
     World.instance = this;
+    this.preLoader = new PreLoader();
     this.canvas = canvas;
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.FogExp2(0xefd1b5, 0.0025);
@@ -27,7 +28,6 @@ class World {
     this.resourses = new Resourses(assets);
     this.renderer = new Renderer();
     this.postPorcessing = new PostProcessing();
-
     this.building = new Building();
 
     this.sizes.on("resize", () => {

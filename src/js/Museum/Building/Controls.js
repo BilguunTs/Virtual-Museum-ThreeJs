@@ -28,6 +28,7 @@ export default class Controls {
       current: 0,
       ease: 0.1,
     };
+    this.navToggled = false;
     this.shouldDisableDrag = false;
     this.targetPosition = new THREE.Vector3();
     this.lookAt = new THREE.Vector3();
@@ -41,6 +42,7 @@ export default class Controls {
 
     this.setWorldDragControl();
     this.setCameraLookControl();
+
     this.setCursorPointControl();
   }
 
@@ -81,10 +83,23 @@ export default class Controls {
     this.modelAuthor = document.getElementById("model-author");
     this.modelDate = document.getElementById("model-date");
 
-    this.startBtn = document.getElementById("start-btn");
-    this.startBtn.addEventListener("click", () => {
-      this.enterMuseum();
+    this.navBtn = document.getElementById("menu-btn");
+    GSAP.to(".nav-section", { x: this.sizes.width });
+    this.navBtn.addEventListener("click", () => {
+      if (this.navToggled) {
+        this.navToggled = false;
+        GSAP.to(".nav-section", { x: this.sizes.width, opacity: 0 });
+      } else {
+        this.navToggled = true;
+        GSAP.to(".nav-section", { x: 0, opacity: 1 });
+      }
     });
+    this.startBtns = document.getElementsByClassName("start-btn");
+    for (let btn of this.startBtns) {
+      btn.addEventListener("click", () => {
+        this.enterMuseum();
+      });
+    }
 
     this.cancelButton = document
       .getElementById("btn-cancel")

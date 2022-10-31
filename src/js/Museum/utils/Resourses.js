@@ -8,6 +8,7 @@ export default class Resourses extends EventEmitter {
     super();
     this.world = new World();
     this.renderer = this.world.renderer;
+    this.preloader = this.world.preLoader;
     this.assets = assets;
 
     this.items = {};
@@ -19,12 +20,14 @@ export default class Resourses extends EventEmitter {
   }
 
   setLoaders() {
+    this.startLoadOnUI();
     this.loaders = {};
     this.loaders.gltfLoader = new GLTFLoader();
     this.loaders.dracoLoader = new DRACOLoader();
     this.loaders.dracoLoader.setDecoderPath("/draco/");
     this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
   }
+
   startLoading() {
     for (let asset of this.assets) {
       if (asset.type === "glb-model") {
@@ -39,7 +42,14 @@ export default class Resourses extends EventEmitter {
 
     this.loaded++;
     if (this.loaded === this.assets.length) {
+      this.endLoadOnUI();
       this.emit("ready");
     }
+  }
+  startLoadOnUI() {
+    this.preloader.launchLoader();
+  }
+  endLoadOnUI() {
+    this.preloader.dispatchLoader();
   }
 }
